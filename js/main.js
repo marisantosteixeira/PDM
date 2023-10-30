@@ -12,6 +12,7 @@ if ('serviceWorker' in navigator) {
     }
   });
 }
+
 let param = 'Apple';
 const apiKey ='29a59e79b2714f908df4447340860f13';
 let url = `https://newsapi.org/v2/everything?q=${param}&apiKey=${apiKey}`;

@@ -19,7 +19,7 @@ const pageCache = new CacheFirst({
 
 //indicando o cache de página
 warmStrategyCache({
-  urls: ['/index.html', '/'],
+  urls: ['/index.html', '/', "https://fonts.googleapis.com/css?family=Poppins&display=swap"],
   strategy: pageCache,
 });
 //registrando a rota
@@ -37,6 +37,9 @@ registerRoute(
     ],
   }),
 );
+offlineFallback({
+  pageFallback: '/offline.html',
+}); 
 
 const imageRoute = new Route(({ request }) => {
   return request.destination === 'image';
@@ -51,6 +54,3 @@ const imageRoute = new Route(({ request }) => {
 
 registerRoute(imageRoute);
 
-offlineFallback({
-  pageFallback: '/offline.html',
-}); 
